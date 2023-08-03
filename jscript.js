@@ -26,4 +26,19 @@ function calculateFunction(){
   }
   updateFunctionToDisplay();
 }
+
+function handleKeyPress(event) {
+  const key = event.key;
+  const validKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '+', '-', '*', '/', '%','(', ')','=', 'Enter'];
+
+  if (validKeys.includes(key)) {
+    if (key === 'Enter' || key==='=') {
+      calculateFunction();
+    } else {
+      appenddFunctionToDisplayData(key);
+    }
+  }
+}
+document.addEventListener('keypress', handleKeyPress);
+
 updateFunctionToDisplay();
